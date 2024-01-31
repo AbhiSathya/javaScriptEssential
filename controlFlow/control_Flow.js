@@ -46,3 +46,28 @@ console.log("User Category:", userCategory);
 let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 console.log("Authentication Status:", authenticationStatus);
+
+function determineAccess(person) {
+    switch (person.role) {
+        case 'Employee':
+            return 'You are authorized to access Dietary Services.';
+        case 'Enrolled Member':
+            return 'You are authorized to access Dietary Services and have one-on-one interaction with a dietician.';
+        case 'Subscriber':
+            return 'You are authorized to have partial access to facilitate Dietary Services only.';
+        case 'Non-Subscriber':
+            return 'You need to enroll or at least subscribe first to avail this facility.';
+        default:
+            return 'Invalid role. Please provide a valid role.';
+    }
+}
+
+const employee = { role: 'Employee' };
+const enrolledMember = { role: 'Enrolled Member' };
+const subscriber = { role: 'Subscriber' };
+const nonSubscriber = { role: 'Non-Subscriber' };
+
+console.log(determineAccess(employee));
+console.log(determineAccess(enrolledMember));
+console.log(determineAccess(subscriber));
+console.log(determineAccess(nonSubscriber));
