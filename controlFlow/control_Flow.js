@@ -47,6 +47,8 @@ let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 console.log("Authentication Status:", authenticationStatus);
 
+//practice problem
+
 function determineAccess(person) {
     switch (person.role) {
         case 'Employee':
