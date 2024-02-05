@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Debugging Example</h1>
+    <label for="input1">Enter Number 1:</label>
+    <input type="number" id="input1"><br><br>
+    <label for="input2">Enter Number 2:</label>
+    <input type="number" id="input2"><br><br>
+    <select title="Operation" id="op" >
+        <option value="+">Addition</option>
+        <option value="-">Subtraction</option>
+        <option value='*'>Multiplication</option>
+        <option value="/">Division</option>
+    </select>
+    <button onclick="performOperation()">Perform Operation</button>
+    <p id="result"></p>
+    <script>function performOperation() {
+        let num1 = parseFloat(document.getElementById("input1").value);
+        let num2 = parseFloat(document.getElementById("input2").value);
+        let op = document.getElementById("op").value;
+        if(!isNaN(num1) && !isNaN(num2)) {
+            let result;
+            switch(op)
+            {
+                case '+':   debugger;
+                            result = num1+num2;
+                            break; 
+                case '-':   debugger;
+                            result = num1-num2;
+                            break;
+                case '*':   debugger;
+                            result = num1*num2;
+                            break;
+                case '/':   debugger;
+                            if(num2!=0)
+                                result = num1/num2;
+                            break;
+                default: console.log("Enter valid operator");
+            }
+            display(result);
+        }
+        else {
+            display("Enter valid numbers");
+        }
+    }
+    function display(res) {
+        document.getElementById("result").textContent = `The result is : ${res}`;
+    }
+    </script>
+</body>
+</html>
