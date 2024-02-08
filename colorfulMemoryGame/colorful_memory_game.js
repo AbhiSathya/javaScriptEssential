@@ -42,12 +42,12 @@ function handleCardClick(event) {
 }
 
 function checkMatch() {
-    const [card1, card2] = selectedCards;
+    const [card1, card2] = [selectedCards[0], selectedCards[1]];
     if(card1.dataset.color === card2.dataset.color) {
         card1.classList.add("matched");
         card2.classList.add("matched");
         score += 2;
-        scoreElement.textContent =`score: ${score}`;
+        scoreElement.textContent =`Score: ${score}`;
     }
     else {
         card1.textContent = card2.textContent = '?';
@@ -77,7 +77,7 @@ function startGameTimer(timeLeft) {
 
         if(timeLeft === 0) {
             clearInterval(gameInterval);
-            let timeLeft = 30;
+            timeLeft = 0;
             alert("Game Over!");
             startbtn.disabled = false;
         }
